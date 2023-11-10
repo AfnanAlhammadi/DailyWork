@@ -1,0 +1,219 @@
+
+
+1.	Write a Java Program to find the Compound interest based on the formula below :
+Compound Interest = P(1 + R/100)t
+Where,
+P is principal amount
+R is the rate and
+T is the time span
+Example:
+Input : Principal (amount): 1200
+        Time: 2
+        Rate: 5.4
+Output : Compound Interest = 1333.099243
+
+
+
+Answer :
+
+import java.text.DecimalFormat;
+
+public class CompoundInterestCalculator {
+    public static void main(String[] args) {
+        double principal = 1200;
+        int time = 2;
+        double rate = 5.4;
+
+        // Calculate compound interest
+        double compoundInterest = principal * Math.pow((1 + rate / 100), time);
+
+        // Format the result to two decimal places
+        DecimalFormat df = new DecimalFormat("#00");
+        String formattedCompoundInterest = df.format(compoundInterest);
+
+        System.out.println("Compound " + formattedCompoundInterest);
+    }
+}
+
+
+
+————————————————————————
+
+
+2.	Write a Java Program to Find Factorial of a number. 
+Factorial of a non-negative integer, is multiplication of all integers smaller than or equal to n. In this article, we will learn how to write a program for the factorial of a number in Java.
+Formulae for Factorial
+n! = n * (n-1) * (n-2) * (n-3) * ........ * 1
+Sample Output:
+6! == 6*5*4*3*2*1 = 720. 
+5! == 5*4*3*2*1 = 120
+4! == 4*3*2*1 = 24
+
+
+
+Answer :
+
+public class FactorialCalculator {
+    public static void main(String[] args) {
+        int number = 6; // The number for which factorial to be calculated
+
+        // Calculate factorial
+        int factorial = 1;
+        for (int i = 1; i <= number; i++) {
+            factorial *= i;
+        }
+
+        System.out.println(number + "! = " + factorial);
+    }
+}
+
+
+//in this program, we use a for loop to iterate from 1 to the given number. Inside the loop, we multiply the current value of the factorial by the loop variable i. Finally, we print the factorial value.
+
+
+————————————————————————
+
+
+3.	Given two integers m and n. The goal is simply to swap their values in the memory block and writing the java code demonstrating approaches.
+Example:
+Input  : m=9, n=5
+Output : m=5, n=9
+ 
+Input  : m=15, n=5
+Output : m=5, n=15
+Here 'm' and 'n' are integer value
+
+
+
+Answer :
+
+public class SwapVariables {
+    public static void main(String[] args) {
+        int m = 9;
+        int n = 5;
+
+        m = m ^ n;
+        n = m ^ n;
+        m = m ^ n;
+
+        System.out.println("Swapped values: m = " + m + ", n = " + n);
+    }
+}
+
+//first declare two variables m and n with the given values. Then we use different techniques to swap their values. Finally, we print the swapped values using System.out.println().
+
+
+————————————————————————
+
+
+4.	Write a Java code to find the difference between the square of the sum and the sum of the squares of the first N natural numbers as explained below :
+The square of the sum of the first ten natural numbers is (1 + 2 + ... + 10)² = 55² = 3025.
+The sum of the squares of the first ten natural numbers is 1² + 2² + ... + 10² = 385.
+Hence the difference between the square of the sum of the first ten natural numbers and the sum of the squares of the first ten natural numbers is 3025 - 385 = 2640.
+
+
+
+
+Answer :
+
+public class SquareDifferenceCalculator {
+    public static void main(String[] args) {
+        int N = 10; // Number of natural numbers
+
+        // Calculate the sum of the first N natural numbers
+        int sum = 0;
+        for (int i = 1; i <= N; i++) {
+            sum += i        // Calculate the sum of the squares of the first N natural numbers
+        int sumOfSquares = 0;
+        for (int i = 1; i <= N; i++) {
+Squares += i * i;
+        }
+
+        // Calculate the square of the sum
+        int squareOfSum = sum * sum;
+
+        // Calculate the difference
+        int difference = squareOfSum - sumOfSquares;
+
+        System.out.println("The difference is: " + difference);
+    }
+}
+
+
+
+————————————————————————
+
+
+5.	Write a Java code to print all the Factors of a given no. 
+Example : 
+	Number = 24
+	Factors : 1 , 2 , 3 , 4, 6, 8, 12, 24
+
+Answer :
+
+import java.util.Scanner;
+
+public class Factors {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        System.out.print("Factors of " + number + ": ");
+        for (int i = 1; i <= number; i++) {
+            if (number % i == 0) {
+                System.out.print(i + " ");
+            }
+        }
+
+        scanner.close();
+    }
+}
+
+//This code takes a number as input and prints its factors.
+
+————————————————————————
+
+
+6.	Write a Java code to find the LCM & GCD of 2 Numbers . 
+LCM (i.e. Least Common Multiple) is the largest of the two stated numbers that can be divided by both the given numbers
+Example for LCM of Two Numbers
+Input: LCM( 15 and 25)
+Output: 75
+Input: LCM( 3 and 7 )
+Output: 21
+
+
+Answer :
+
+import java.util.Scanner;
+
+public class LCMandGCD {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter first number: ");
+        int num1 = scanner.nextInt();
+        System.out.print("Enter second number: ");
+        int num2 = scanner.nextInt();
+
+        int gcd = findGCD(num1, num2);
+        int lcm = (num1 * num2) / gcd;
+
+        System.out.println("LCM of " + num1 + " and " + num2 + ": " + lcm);
+
+        scanner.close();
+    }
+
+    private static int findGCD(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+}
+
+//This code calculates the GCD (Greatest Common Divisor) using the Euclidean algorithm and then finds the LCM using the formula LCM = (num1 * num2) / GCD.
